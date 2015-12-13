@@ -10,5 +10,4 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -DBOOST_LOG_DYN_LINK")
 set(SOURCE_FILES main.cpp)
 add_executable(boostlog ${SOURCE_FILES})
 
-target_link_libraries(boostlog pthread boost_thread boost_log boost_system)
-#target_link_libraries(boostlog boost_log)
+target_link_libraries(boostlog pthread boost_thread boost_log boost_system boost_log_setup)
