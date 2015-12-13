@@ -6,6 +6,7 @@
 #include "log4cpp/Layout.hh"
 #include "log4cpp/BasicLayout.hh"
 #include "log4cpp/Priority.hh"
+#include "log4cpp_config.h"
 
 using namespace std;
 
@@ -41,6 +42,8 @@ int main() {
     // or this way:
     root.errorStream() << "Another streamed error";
 
+
+    logWithConfig("/mnt/home/feng/workspace/testlib/log4cpp_test/log4cpp.properties");
     cout << "Hello, World!" << endl;
     return 0;
 }
