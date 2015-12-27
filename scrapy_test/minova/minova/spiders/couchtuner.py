@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 import scrapy
+from minova.items import MinovaItem
 
 
 class CouchtunerSpider(scrapy.Spider):
@@ -11,8 +12,10 @@ class CouchtunerSpider(scrapy.Spider):
 
     def parse(self, response):
         for sel in response.xpath('//div[contains(@id, "content")]//div[contains(@class, "entry")]//ul/li'):
-            name = sel.xpath('strong/text()').extract()
-            link = sel.xpath('strong/a/@href').extract()
-            print name, link
+            item = MinovaItem()
+            item['title'] = sel.xpath('strong/a/text()').extract()
+            item['link'] = sel.xpath('strong/a/@href').extract()
+            item['des'] = sel.xpath('strong/text()').extract()
+            yield item
 
 
