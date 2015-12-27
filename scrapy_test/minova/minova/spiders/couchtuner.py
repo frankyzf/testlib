@@ -6,7 +6,6 @@ class CouchtunerSpider(scrapy.Spider):
     name = "couchtuner"
     allowed_domains = ["couchtuner.fr"]
     start_urls = (
-        'http://www.couchtuner.fr/watch-12-monkeys-online/',
         'http://www.couchtuner.fr/watch-2-broke-girls-online/',
     )
 
