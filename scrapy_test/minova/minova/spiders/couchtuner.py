@@ -13,9 +13,9 @@ class CouchtunerSpider(scrapy.Spider):
     def parse(self, response):
         for sel in response.xpath('//div[contains(@id, "content")]//div[contains(@class, "entry")]//ul/li'):
             item = MinovaItem()
-            item['title'] = sel.xpath('strong/a/text()').extract()
+            item['des'] = sel.xpath('strong/a/text()').extract()
+            item['title'] = sel.xpath('strong/text()').extract()
             item['link'] = sel.xpath('strong/a/@href').extract()
-            item['des'] = sel.xpath('strong/text()').extract()
             yield item
 
 
